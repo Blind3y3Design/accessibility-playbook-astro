@@ -1,0 +1,24 @@
+---
+import { getEntry } from "astro:content";
+import type { CollectionEntry } from "astro:content";
+import Card from "./generic/Card.astro";
+
+interface Props {
+  entry: CollectionEntry<"design">;
+}
+
+const { entry } = Astro.props;
+
+const { title, subTitle, tags, additionalResources } = entry.data;
+const cardContent = await getEntry(entry.collection, entry.slug);
+const { Content } = await cardContent.render();
+---
+
+<Card
+  title={title}
+  subTitle={subTitle}
+  tags={tags}
+  additionalResources={additionalResources}
+>
+  <Content />
+</Card>

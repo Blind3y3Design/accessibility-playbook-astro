@@ -23,8 +23,23 @@ const basicsCollection = defineCollection({
   type: "content",
   schema: itemSchema,
 });
+const designerCollection = defineCollection({
+  type: "content",
+  schema: itemSchema,
+});
+const developerCollection = defineCollection({
+  type: "content",
+  schema: itemSchema,
+});
+const pmCollection = defineCollection({
+  type: "content",
+  schema: itemSchema,
+});
 
 // Export a single `collections` object to register your collection(s)
 export const collections = {
   basics: basicsCollection,
+  design: designerCollection,
+  dev: developerCollection,
+  pm: pmCollection,
 };

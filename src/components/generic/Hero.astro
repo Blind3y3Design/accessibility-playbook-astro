@@ -20,8 +20,12 @@ const { headline, description } = Astro.props;
   .hero {
     align-content: center;
     justify-content: center;
-    padding: clamp(16px, 8vw, 150px);
+    padding-block: clamp(16px, 8vw, 150px);
+    padding-inline: 16px;
     position: relative;
+    @media (min-width: 768px) {
+      padding-inline: 32px;
+    }
   }
   .hero__content {
     display: flex;
@@ -29,11 +33,8 @@ const { headline, description } = Astro.props;
     gap: 16px;
     margin: 0 auto;
     max-width: 1400px;
-    width: 100%;
 
-    @media (min-width: 768px) {
-      padding-inline: 32px;
-    }
+    width: 100%;
   }
   .hero__headline {
   }
