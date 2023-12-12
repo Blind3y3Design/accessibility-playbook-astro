@@ -22,14 +22,6 @@ const currentPath = pathname.slice(1); // remove the first "/"
       </li>
       <li class="main-nav__item">
         <a
-          class={currentPath === "product-managers" ? "active" : ""}
-          href="/product-managers"
-        >
-          Product Managers
-        </a>
-      </li>
-      <li class="main-nav__item">
-        <a
           class={currentPath === "designers" ? "active" : ""}
           href="/designers"
         >
@@ -42,6 +34,14 @@ const currentPath = pathname.slice(1); // remove the first "/"
           href="/developers"
         >
           Developers
+        </a>
+      </li>
+      <li class="main-nav__item">
+        <a
+          class={currentPath === "product-managers" ? "active" : ""}
+          href="/product-managers"
+        >
+          Product Managers
         </a>
       </li>
     </ul>
