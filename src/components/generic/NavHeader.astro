@@ -1,0 +1,81 @@
+---
+const pathname = new URL(Astro.request.url).pathname;
+const currentPath = pathname.slice(1); // remove the first "/"
+---
+
+<header>
+  <nav class="navbar">
+    <button id="toggle-nav">menu</button>
+    <ul id="navlist">
+      <li>
+        <a class={currentPath === "" ? "active" : ""} href="/">Home</a>
+      </li>
+      <li>
+        <a class={currentPath === "basics" ? "active" : ""} href="/basics">
+          Basics
+        </a>
+      </li>
+    </ul>
+  </nav>
+</header>
+
+<style>
+  .navbar {
+    position: relative;
+  }
+
+  #navlist {
+    list-style: none;
+    display: flex;
+    padding: 0;
+    margin: 0;
+  }
+
+  #navlist li {
+    flex: auto;
+    text-align: center;
+    padding: 1.6em;
+    font-size: 18px;
+  }
+
+  #toggle-nav {
+    display: none;
+    margin: auto;
+    cursor: pointer;
+  }
+  @media all and (max-width: 500px) {
+    .navbar {
+      padding: 1.6em;
+    }
+
+    #navlist {
+      flex-direction: column;
+      display: none;
+    }
+
+    #toggle-nav {
+      display: block;
+      color: white;
+    }
+  }
+</style>
+
+<script>
+  var nav = document.getElementById("navlist");
+
+  export function toggleNav() {
+    if (nav.style.display === "") nav.style.display = "block";
+    else nav.style.display = "";
+  }
+
+  function windowResizeHandler() {
+    if (screen.width > 500) nav.style.display = "";
+  }
+
+  window.addEventListener("resize", windowResizeHandler);
+
+  const menuButton = document.querySelector("#toggle-nav");
+  menuButton?.addEventListener("click", () => {
+    toggleNav();
+  });
+</script>

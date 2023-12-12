@@ -1,0 +1,36 @@
+---
+import Layout from "./Layout.astro";
+import Hero from "../components/generic/Hero.astro";
+import ResourceFooter from "../components/generic/ResourceFooter.astro";
+const { pageTitle, description, resources } = Astro.props;
+---
+
+<Layout pageTitle={pageTitle}>
+  <main>
+    <header>
+      <Hero headline={pageTitle} description={description} />
+    </header>
+    <div class="main-content">
+      <slot />
+    </div>
+    <ResourceFooter resources={resources} />
+  </main>
+</Layout>
+
+<style>
+  .main-content {
+    align-items: center;
+    display: flex;
+    min-height: 50dvh;
+    flex-direction: column;
+    gap: 64px;
+    margin: 0 auto;
+    max-width: 1400px;
+    padding-block: 64px;
+    padding-inline: 16px;
+
+    @media (min-width: 768px) {
+      padding-inline: 32px;
+    }
+  }
+</style>
