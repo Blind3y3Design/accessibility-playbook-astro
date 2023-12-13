@@ -8,7 +8,7 @@ import BasicsCard from "../components/BasicsCard.astro";
 import { getCollection, getEntry } from "astro:content";
 
 const pageContent = await getEntry("basics", "intro");
-const { Content, headings } = await pageContent.render();
+const { Content } = await pageContent.render();
 
 const lawEntries = await getCollection("basics", ({ data }) => {
   return data.tags.includes("laws");

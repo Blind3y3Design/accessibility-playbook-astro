@@ -8,7 +8,7 @@ import PMCard from "../components/PMCard.astro";
 import { getCollection, getEntry } from "astro:content";
 
 const pageContent = await getEntry("pm", "intro");
-const { Content, headings } = await pageContent.render();
+const { Content } = await pageContent.render();
 
 const pmEntries = await getCollection("pm", ({ data }) => {
   return data.tags.includes("product-management");

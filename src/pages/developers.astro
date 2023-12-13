@@ -1,14 +1,15 @@
 ---
 import Layout from "../layouts/Overview.astro";
 import Intro from "../components/Intro.astro";
-import Section from "../components/generic/Section.astro";
-import CardList from "../components/CardList.astro";
-import DesignCard from "../components/DesignCard.astro";
+// import Section from "../components/generic/Section.astro";
+// import CardList from "../components/CardList.astro";
+// import DesignCard from "../components/DesignCard.astro";
 
-import { getCollection, getEntry } from "astro:content";
+// import { getCollection, getEntry } from "astro:content";
+import { getEntry } from "astro:content";
 
 const pageContent = await getEntry("dev", "intro");
-const { Content, headings } = await pageContent.render();
+const { Content } = await pageContent.render();
 
 // const operatingEntries = await getCollection("design", ({ data }) => {
 //   return data.tags.includes("operating");
