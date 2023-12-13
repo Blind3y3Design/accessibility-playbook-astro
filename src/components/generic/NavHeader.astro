@@ -160,8 +160,8 @@ const currentPath = pathname.slice(1); // remove the first "/"
 </style>
 
 <script>
-  const menuButton = document.querySelector(".menu-button");
-  const nav = document.querySelector(".main-nav");
+  const menuButton: HTMLElement = document.querySelector(".menu-button") as HTMLElement;
+  const nav: HTMLElement = document.querySelector(".main-nav") as HTMLElement;
   menuButton.onclick = () => {
     nav.classList.toggle("active");
   };

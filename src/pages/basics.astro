@@ -18,7 +18,15 @@ const principleEntries = await getCollection("basics", ({ data }) => {
   return data.tags.includes("principles");
 });
 
-principleEntries.sort((a, b) => a.data.index - b.data.index);
+principleEntries.sort((a, b) => {
+  if (
+    typeof a.data.index === "undefined" ||
+    typeof b.data.index === "undefined"
+  ) {
+    return 0;
+  }
+  return a.data.index - b.data.index;
+});
 
 const levelEntries = await getCollection("basics", ({ data }) => {
   return data.tags.includes("levels");

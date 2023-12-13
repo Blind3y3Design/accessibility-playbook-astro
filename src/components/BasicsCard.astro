@@ -9,7 +9,7 @@ interface Props {
 
 const { entry } = Astro.props;
 
-const { title, subTitle, tags, additionalResources } = entry.data;
+const { title, subTitle, additionalResources } = entry.data;
 const cardContent = await getEntry(entry.collection, entry.slug);
 const { Content } = await cardContent.render();
 ---
@@ -17,8 +17,7 @@ const { Content } = await cardContent.render();
 <Card
   title={title}
   subTitle={subTitle}
-  tags={tags}
-  additionalResources={additionalResources}
+  additionalResources={additionalResources ? additionalResources : []}
 >
   <Content />
 </Card>
